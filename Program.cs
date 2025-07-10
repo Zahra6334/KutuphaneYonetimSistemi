@@ -1,4 +1,5 @@
 ﻿﻿using System;
+using System.Linq;
 using KutuphaneYonetimSistemi.Entities;
 using KutuphaneYonetimSistemi.Managers;
 
@@ -12,6 +13,7 @@ namespace KutuphaneYonetimSistemi
 
             var kullaniciYonetici = new UserManager();
             var kitapYonetici = new BookManager();
+            var borrowRequestManager = new BorrowRequestManager();
 
             Console.WriteLine("=== KÜTÜPHANE YÖNETİM SİSTEMİ ===");
             Console.Write("Kullanıcı Adı: ");
@@ -31,15 +33,15 @@ namespace KutuphaneYonetimSistemi
 
             if (girisYapan.AdminMi)
             {
-                AdminMenusu(kitapYonetici);
+                AdminMenusu(kitapYonetici, borrowRequestManager);
             }
             else
             {
-                KullaniciMenusu(kitapYonetici, girisYapan.KullaniciAdi);
+                KullaniciMenusu(kitapYonetici, girisYapan.KullaniciAdi, borrowRequestManager);
             }
         }
 
-        static void AdminMenusu(BookManager kitapYonetici)
+        static void AdminMenusu(BookManager kitapYonetici, BorrowRequestManager borrowRequestManager)
         {
             while (true)
             {
@@ -50,6 +52,7 @@ namespace KutuphaneYonetimSistemi
                 Console.WriteLine("4 - Kitapları Listele");
                 Console.WriteLine("5 - Kitap Ödünç Ver");
                 Console.WriteLine("6 - Kitap İade Al");
+                Console.WriteLine("7 - Ödünç İsteklerini Görüntüle ve Yönet");
                 Console.WriteLine("0 - Çıkış");
                 Console.Write("Seçiminiz: ");
                 string secim = Console.ReadLine();
@@ -129,6 +132,33 @@ namespace KutuphaneYonetimSistemi
                         Console.WriteLine("📥 Kitap iade alındı.");
                         break;
 
+                    case "7":
+                        var istekler = borrowRequestManager.TumIstekleriGetir();
+                        if (istekler.Count == 0)
+                        {
+                            Console.WriteLine("🔕 Bekleyen ödünç isteği yok.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("📬 BEKLEYEN ÖDÜNÇ İSTEKLERİ:");
+                            foreach (var istek in istekler)
+                            {
+                                Console.WriteLine($"ISBN: {istek.ISBN}, Kullanıcı: {istek.KullaniciAdi}");
+                            }
+
+                            Console.Write("Onaylamak istediğiniz isteğin ISBN'si: ");
+                            string onayIsbn = Console.ReadLine();
+
+                            Console.Write("Kullanıcı adı: ");
+                            string onayKullanici = Console.ReadLine();
+
+                            borrowRequestManager.IstekOnayla(onayIsbn, onayKullanici);
+                            kitapYonetici.KitapOduncVer(onayIsbn, onayKullanici);
+
+                            Console.WriteLine("✅ İstek onaylandı ve kitap ödünç verildi.");
+                        }
+                        break;
+
                     case "0":
                         Console.WriteLine("👋 Çıkış yapılıyor...");
                         return;
@@ -140,7 +170,7 @@ namespace KutuphaneYonetimSistemi
             }
         }
 
-        static void KullaniciMenusu(BookManager kitapYonetici, string kullaniciAdi)
+        static void KullaniciMenusu(BookManager kitapYonetici, string kullaniciAdi, BorrowRequestManager borrowRequestManager)
         {
             while (true)
             {
@@ -148,6 +178,7 @@ namespace KutuphaneYonetimSistemi
                 Console.WriteLine("1 - Kütüphanedeki Kitapları Listele");
                 Console.WriteLine("2 - Ödünç Aldığım Kitaplar");
                 Console.WriteLine("3 - Kitap İade Et");
+                Console.WriteLine("4 - Kitap Ödünç İste");
                 Console.WriteLine("0 - Çıkış");
                 Console.Write("Seçiminiz: ");
                 string secim = Console.ReadLine();
@@ -156,6 +187,7 @@ namespace KutuphaneYonetimSistemi
                 {
                     case "1":
                         var kitaplar = kitapYonetici.TumKitaplariGetir();
+                        Console.WriteLine("📚 KÜTÜPHANEDEKİ KİTAPLAR:");
                         foreach (var k in kitaplar.Where(k => !k.OduncteMi))
                         {
                             Console.WriteLine($"{k.ISBN} - {k.Adi} ({k.Yazari})");
@@ -173,9 +205,23 @@ namespace KutuphaneYonetimSistemi
 
                     case "3":
                         Console.Write("İade Etmek İstediğiniz Kitabın ISBN: ");
-                        string isbn = Console.ReadLine();
-                        kitapYonetici.KitapIadeAl(isbn, kullaniciAdi);
+                        string iadeIsbn = Console.ReadLine();
+                        kitapYonetici.KitapIadeAl(iadeIsbn, kullaniciAdi);
                         Console.WriteLine("📥 Kitap iade edildi.");
+                        break;
+
+                    case "4":
+                        Console.Write("Ödünç İstemek İstediğiniz Kitabın ISBN'si: ");
+                        string istekIsbn = Console.ReadLine();
+
+                        OduncIstek yeniIstek = new OduncIstek
+                        {
+                            ISBN = istekIsbn,
+                            KullaniciAdi = kullaniciAdi
+                        };
+
+                        borrowRequestManager.IstekEkle(yeniIstek);
+                        Console.WriteLine("📨 Ödünç istek gönderildi, admin onayına sunuldu.");
                         break;
 
                     case "0":
