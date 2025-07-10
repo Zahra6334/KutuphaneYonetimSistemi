@@ -1,0 +1,12 @@
+[
+  {
+    "KullaniciAdi": "admin",
+    "Sifre": "1234",
+    "AdminMi": true
+  },
+  {
+    "KullaniciAdi": "mehmet",
+    "Sifre": "abcd",
+    "AdminMi": false
+  }
+]

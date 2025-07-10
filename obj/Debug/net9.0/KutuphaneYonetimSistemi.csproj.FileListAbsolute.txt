@@ -1,0 +1,17 @@
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.AssemblyInfoInputs.cache
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.AssemblyInfo.cs
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.csproj.CoreCompileInputs.cache
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\KutuphaneYonetimSistemi.exe
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\KutuphaneYonetimSistemi.deps.json
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\KutuphaneYonetimSistemi.runtimeconfig.json
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\KutuphaneYonetimSistemi.dll
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\KutuphaneYonetimSistemi.pdb
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.csproj.AssemblyReference.cache
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\Kutuphan.9AB83282.Up2Date
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.dll
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\refint\KutuphaneYonetimSistemi.dll
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.pdb
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\KutuphaneYonetimSistemi.genruntimeconfig.cache
+C:\Users\ZAHRA\OneDrive - Bingöl Üniversitesi\Masaüstü\Kütüphane Yönetim Sistemi\KutuphaneYonetimSistemi\obj\Debug\net9.0\ref\KutuphaneYonetimSistemi.dll
